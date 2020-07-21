@@ -2,12 +2,10 @@
 Miscellaneous helper functions.
 """
 
-from collections.abc import Iterable # for testing if objects are iterable
-
 def wrap_list(val) -> list:
     """
-        Wrap `val' in a list unless it is already iterable.
+        Wrap `val' in a list unless it is already a list.
     """
-    if isinstance(val, Iterable):
+    if isinstance(val, list):
         return val
     return [val]
