@@ -9,10 +9,7 @@ def prepare(doc: pf.Doc):
         the document's metadata.
     """
     doc.files = []
-    try:
-        class_map = doc.get_metadata()['tangle-files']
-    except KeyError: # No files to tangle
-        class_map = {}
+    class_map = doc.get_metadata('tangle-files', {})
 
     for name, classes in class_map.items():
         doc.files.append(OutputFile(name, wrap_list(classes)))
