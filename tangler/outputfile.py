@@ -19,7 +19,7 @@ class OutputFile:
             nothing to write to that file.
             """
         self.name: str = name
-        # This is a frozenset to make it hashable
+        # This is a frozenset so it can be tested as a subset of other iterables
         self.classes: FrozenSet[str] = frozenset(classes)
 
         self.file = None # lazy-loaded
